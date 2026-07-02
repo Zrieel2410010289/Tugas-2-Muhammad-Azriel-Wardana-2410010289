@@ -1,4 +1,4 @@
-# Tugas 2 Cloud Computing — Sarulah (Taka) — NPM 2410010643
+# Tugas 2 Cloud Computing — Muhammad Azriel Wardana
 
 Aplikasi: **Catatan Kegiatan Mengajar PLP - IPAS**
 
