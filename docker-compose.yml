@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: catatan_plp_web
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - MONGO_URI=mongodb://db:27017/catatan_plp
+    depends_on:
+      - db
+    networks:
+      - plp_network
+
+  db:
+    image: mongo:7
+    container_name: catatan_plp_db
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - plp_network
+
+volumes:
+  mongo_data:
+
+networks:
+  plp_network:
+    driver: bridge
