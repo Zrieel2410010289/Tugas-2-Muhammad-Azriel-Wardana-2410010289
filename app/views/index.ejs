@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catatan Kegiatan Mengajar PLP - IPAS</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📘 Catatan Kegiatan Mengajar PLP</h1>
+      <p class="subtitle">Mata Pelajaran IPAS</p>
+    </header>
+
+    <a href="/tambah" class="btn btn-primary">+ Tambah Catatan</a>
+
+    <% if (error) { %>
+      <p class="error"><%= error %></p>
+    <% } %>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Nama Siswa</th>
+            <th>Pertemuan</th>
+            <th>Materi</th>
+            <th>Catatan</th>
+            <th>Nilai</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (daftarCatatan.length === 0) { %>
+            <tr><td colspan="6" class="empty">Belum ada catatan.</td></tr>
+          <% } %>
+          <% daftarCatatan.forEach(item => { %>
+            <tr>
+              <td><%= item.namaSiswa %></td>
+              <td>Ke-<%= item.pertemuan %></td>
+              <td><%= item.materi %></td>
+              <td><%= item.catatan %></td>
+              <td><span class="badge"><%= item.nilai %></span></td>
+              <td class="actions">
+                <a href="/catatan/<%= item._id %>/edit">Edit</a>
+                <form action="/catatan/<%= item._id %>?_method=DELETE" method="POST" style="display:inline">
+                  <button type="submit" onclick="return confirm('Hapus catatan ini?')">Hapus</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tambah Catatan</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>➕ Tambah Catatan</h1>
+    </header>
+    <form action="/catatan" method="POST" class="form">
+      <label>Nama Siswa</label>
+      <input type="text" name="namaSiswa" required>
+
+      <label>Pertemuan ke-</label>
+      <input type="number" name="pertemuan" min="1" required>
+
+      <label>Materi</label>
+      <input type="text" name="materi" required>
+
+      <label>Catatan / Alasan</label>
+      <textarea name="catatan" rows="4" required></textarea>
+
+      <label>Nilai (0-100)</label>
+      <input type="number" name="nilai" min="0" max="100" required>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Simpan</button>
+        <a href="/" class="btn">Batal</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

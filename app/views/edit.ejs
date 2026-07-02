@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Catatan</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>✏️ Edit Catatan</h1>
+    </header>
+    <form action="/catatan/<%= item._id %>?_method=PUT" method="POST" class="form">
+      <label>Nama Siswa</label>
+      <input type="text" name="namaSiswa" value="<%= item.namaSiswa %>" required>
+
+      <label>Pertemuan ke-</label>
+      <input type="number" name="pertemuan" value="<%= item.pertemuan %>" min="1" required>
+
+      <label>Materi</label>
+      <input type="text" name="materi" value="<%= item.materi %>" required>
+
+      <label>Catatan / Alasan</label>
+      <textarea name="catatan" rows="4" required><%= item.catatan %></textarea>
+
+      <label>Nilai (0-100)</label>
+      <input type="number" name="nilai" value="<%= item.nilai %>" min="0" max="100" required>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="/" class="btn">Batal</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
